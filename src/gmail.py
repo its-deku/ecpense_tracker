@@ -40,7 +40,7 @@ class GmailApi:
         # / gmail / v1 / users / {userId} / messages / {id}
         service = build("gmail", "v1", credentials=creds)
         # fetch 10 mails so to cover more than enough for daily transactions allowed from UPI
-        results = service.users().messages().list(userId="me", maxResults=10, q="from:alerts@hdfcbank.net").execute()
+        results = service.users().messages().list(userId="me", maxResults=20, q="from:alerts@hdfcbank.net").execute()
 
         # extract the message ids to get the content of mail later using those ids
         message_ids = []

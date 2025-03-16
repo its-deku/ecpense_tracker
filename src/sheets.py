@@ -9,10 +9,10 @@ class SheetsApi:
     def add_entry(creds, sheet_id, transactions):
         global row
         service = build("sheets", "v4", credentials=creds)
-        end_row = row + len(transactions) - 1
-        range_names = f"E{row}:G{end_row}"
+        range_names = "E:G"
 
         body = {"values": transactions}
+
         result = (
             service.spreadsheets()
             .values()
